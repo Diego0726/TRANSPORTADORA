@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Formulário de Entrega</title>
+  <meta charset="UTF-8"> <!-- Define o conjunto de caracteres como UTF-8 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Define a escala inicial de visualização para dispositivos móveis -->
+  <title>Dev_Transportadora</title> <!-- Define o título da página -->
+  <link rel="shortcut icon" href="imagens/icone2.png" type="image/x-icon"> <!-- Define o ícone da página -->
+  <link rel="stylesheet" href="Calculo_frete.css"> <!-- Importa um arquivo CSS externo -->
+  <script src="https://kit.fontawesome.com/f6bc5d7c98.js" crossorigin="anonymous"></script> <!-- Importa o kit de ícones do Font Awesome -->
+  <script>
+    function calcularFrete() {
+      let nomeCliente = document.getElementById("nameInput").value;
+      let email = document.getElementById("emailInput").value;
+      let contato = parseInt(document.getElementById("contatoInput").value);
+      let tonelada = parseInt(document.getElementById("toneladaInput").value);
+      let kmRodado = parseInt(document.getElementById("kmRodadoInput").value);
+
+      const valorDiesel = 6.69;
+      let modelosCarros = ['VUC', 'Toco', 'LS Tremidão', 'Volvo FH'];
+
+      let calc = 0;
+      let modeloCarro = ' ';
+
+      if (tonelada <= 6) {
+        calc = (valorDiesel / 6.2) * kmRodado;
+        modeloCarro = modelosCarros[0];
+      } else if (tonelada <= 16) {
+        calc = (valorDiesel / 6.2) * kmRodado;
+        modeloCarro = modelosCarros[1];
+      } else if (tonelada <= 49) {
+        calc = (valorDiesel / 4.01) * kmRodado;
+        modeloCarro = modelosCarros[2];
+      } else if (tonelada <= 74) {
+        calc = (valorDiesel / 1.41) * kmRodado;
+        modeloCarro = modelosCarros[3];
+      } else {
+        console.log('Operação inválida');
+      }
+
+      const toneladaVal = (121.90 * tonelada) * 0.153;
+      const bonusFuncionario = kmRodado / 10;
+      const boleto = (toneladaVal + bonusFuncionario + calc).toFixed(2);
+
+      document.getElementById("result").innerHTML = `Muito obrigado(a), ${nomeCliente}! Seu pedido foi concluído.<br><br>O valor total é de R$${boleto} e será levado por um caminhão modelo ${modeloCarro}.`;
+    }
+  </script>
+</head>
+<body>
+
+  <ul class="snip1226">
+    <li class="current"><a href="#" data-hover="Home">Home</a></li> <!-- Link para a página inicial -->
+    <li><a href="#" data-hover="About Us">Sobre Nós</a></li> <!-- Link para a página "Sobre Nós" -->
+    <li><a href="#" data-hover="Blog">Blog</a></li> <!-- Link para a página de blog -->
+    <li><a href="#" data-hover="Services">Serviços</a></li> <!-- Link para a página de serviços -->
+    <li><a href="#" data-hover="Contact">Contato</a></li> <!-- Link para a página de contato -->
+  </ul>
+  <Form>
+    <div class="form-box">
+  <h1>Formulário de Entrega</h1>
+  
+  <label for="name">Nome:</label>
+  <input type="text" id="nameInput"><br><br>
+  
+  <label for="email">Email:</label>
+  <input type="email" id="emailInput"><br><br>
+
+  <label for="contato">Número para contato:</label>
+  <input type="number" id="contatoInput"><br><br>
+  
+  <label for="tonelada">Toneladas transportadas:</label>
+  <input type="number" id="toneladaInput"><br><br>
+  
+  <label for="kmRodado">Distância (KM):</label>
+  <input type="number" id="kmRodadoInput"><br><br>
+  
+  <button onclick="calcularFrete()">Calcular</button>
+  </div>
+  </Form>
+  <div id="result"></div>
+</body>
+</html>

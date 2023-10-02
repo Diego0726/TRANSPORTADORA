@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> <!-- Define o conjunto de caracteres como UTF-8 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- Define a compatibilidade do navegador -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Define a escala inicial de visualização para dispositivos móveis -->
+    <title>Dev_Transportadora</title> <!-- Define o título da página -->
+    <link rel="stylesheet" href="Cadastro.CSS"> <!-- Importa um arquivo CSS externo -->
+    <link rel="shortcut icon" href="imagens/icone2.png" type="image/x-icon"> <!-- Define o ícone da página -->
+    <script src="https://kit.fontawesome.com/f6bc5d7c98.js" crossorigin="anonymous"></script> <!-- Importa o kit de ícones do Font Awesome -->
+</head>
+<body>
+    <div class="container"> <!-- Cria uma div com a classe "container" -->
+        <div class="form-box"> <!-- Cria uma div com a classe "form-box" -->
+            <h1>Cadastre o seu veículo</h1> <!-- Cria um cabeçalho h1 exibindo o texto "Cadastre o seu veículo" -->
+            <form id="Formulario"> <!-- Cria um formulário com o ID "Formulario" -->
+                <div class="input-group"> <!-- Cria uma div com a classe "input-group" -->
+                    <div class="input-field"> <!-- Cria uma div com a classe "input-field" -->
+                        <i class="fa-solid fa-truck"></i> <!-- Cria um ícone do Font Awesome -->
+                        <input type="text" placeholder="Placa do Veiculo" required> <!-- Cria um campo de texto para a placa do veículo -->
+                    </div>
+                </div>
+                <div class="input-group"> <!-- Cria uma div com a classe "input-group" -->
+                    <div class="input-field"> <!-- Cria uma div com a classe "input-field" -->
+                        <i class="fa-solid fa-barcode"></i> <!-- Cria um ícone do Font Awesome -->
+                        <input type="text" placeholder="Número do Renavam" required> <!-- Cria um campo de texto para o número do Renavam -->
+                    </div>
+                </div>
+                <div class="input-group"> <!-- Cria uma div com a classe "input-group" -->
+                    <div class="input-field"> <!-- Cria uma div com a classe "input-field" -->
+                        <i class="fa-solid fa-id-card"></i> <!-- Cria um ícone do Font Awesome -->
+                        <input type="text" placeholder="CPF" required> <!-- Cria um campo de texto para o CPF -->
+                    </div>
+                </div>
+                <div class="input-group"> <!-- Cria uma div com a classe "input-group" -->
+                    <div class="input-field"> <!-- Cria uma div com a classe "input-field" -->
+                        <i class="fa-solid fa-brush"></i> <!-- Cria um ícone do Font Awesome -->
+                        <input type="text" placeholder="Cor do Veiculo" required> <!-- Cria um campo de texto para a cor do veículo -->
+                    </div>
+                </div>
+                <div class="input-group"> <!-- Cria uma div com a classe "input-group" -->
+                    <div class="input-field"> <!-- Cria uma div com a classe "input-field" -->
+                        <i class="fa-solid fa-calendar-days"></i> <!-- Cria um ícone do Font Awesome -->
+                        <input type="date" placeholder="Ano de Fabricação" required> <!-- Cria um campo de data para o ano de fabricação -->
+                    </div>
+                </div>
+                <div class="btn-field"> <!-- Cria uma div com a classe "btn-field" -->
+                    <p><button type="button" id="Enviar">Enviar Cadastro</button></p> <!-- Cria um botão com o ID "Enviar" e o texto "Enviar Cadastro" -->
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        let Enviar; // Declaração da variável "Enviar"
+    
+        window.addEventListener("DOMContentLoaded", function() {
+            Enviar = document.getElementById("Enviar"); // Obtém o elemento com o ID "Enviar"
+    
+            Enviar.addEventListener("click", function(event) { // Adiciona um evento de clique ao elemento "Enviar"
+                event.preventDefault(); // Impede o comportamento padrão do clique
+    
+                let form = document.getElementById("Formulario"); // Obtém o elemento com o ID "Formulario"
+                if (form.checkValidity()) { // Verifica se o formulário é válido
+                    window.location.href = "Seleção.html"; // Redireciona para a página "Seleção.html"
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

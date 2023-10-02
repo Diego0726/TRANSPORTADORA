@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"> <!-- Define o conjunto de caracteres como UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Define a escala inicial de visualização para dispositivos móveis -->
+    <title>Dev_Transportadora</title> <!-- Define o título da página -->
+    <link rel="shortcut icon" href="imagens/icone2.png" type="image/x-icon"> <!-- Define o ícone da página -->
+    <link rel="stylesheet" href="inicio.CSS"> <!-- Importa um arquivo CSS externo -->
+    <script src="https://kit.fontawesome.com/f6bc5d7c98.js" crossorigin="anonymous"></script> <!-- Importa o kit de ícones do Font Awesome -->
+</head>
+<body>
+    <div class="container"> <!-- Cria uma div com a classe "container" -->
+        <div class="form-box"> <!-- Cria uma div com a classe "form-box" -->
+            <h1 id="title">Inscreva-se</h1> <!-- Cria um cabeçalho h1 com o ID "title" -->
+            <form method="post" action="conexão.php" id="Formulario"> <!-- Cria um formulário com o método de envio POST e o atributo "action" -->
+                <div class="input-group"> <!-- Cria uma div com a classe "input-group" -->
+                    <div class="input-field" id="Namefield"> <!-- Cria uma div com a classe "input-field" e o ID "Namefield" -->
+                        <i class="fa-solid fa-user"></i> <!-- Cria um ícone do Font Awesome -->
+                        <input type="text" placeholder="Nome Completo"> <!-- Cria um campo de texto para o nome -->
+                    </div>
+                </div>
+                <div class="input-group"> <!-- Cria uma div com a classe "input-group" -->
+                    <div class="input-field"> <!-- Cria uma div com a classe "input-field" -->
+                        <i class="fa-solid fa-envelope"></i> <!-- Cria um ícone do Font Awesome -->
+                        <input type="email" placeholder="Email" required> <!-- Cria um campo de email obrigatório -->
+                    </div>
+                </div>
+                <div class="input-group"> <!-- Cria uma div com a classe "input-group" -->
+                    <div class="input-field"> <!-- Cria uma div com a classe "input-field" -->
+                        <i class="fas fa-lock"></i> <!-- Cria um ícone do Font Awesome -->
+                        <input type="password" placeholder="Senha" required> <!-- Cria um campo de senha obrigatório -->
+                    </div>
+                </div>
+                <p>Esqueceu a senha? <a href="#">Clique aqui!</a></p> <!-- Cria um parágrafo com um link para redefinição de senha -->
+                <div class="btn-field"> <!-- Cria uma div com a classe "btn-field" -->
+                    <button type="button" id="Inscreva-seBtn">Inscreva-se</button> <!-- Cria um botão com o ID "Inscreva-seBtn" -->
+                    <button type="button" class="disable" id="LoginBtn">Entrar</button> <!-- Cria um botão com o ID "LoginBtn" e a classe "disable" -->
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        window.addEventListener("DOMContentLoaded", function() {
+            let form = document.getElementById("Formulario"); // Obtém o formulário pelo ID
+            let loginButton = document.getElementById("LoginBtn"); // Obtém o botão "Entrar" pelo ID
+            let inscrevaseButton = document.getElementById("Inscreva-seBtn"); // Obtém o botão "Inscreva-se" pelo ID
+        
+            // Função executada quando o botão "Entrar" é clicado
+            loginButton.addEventListener("click", function(event) {
+                event.preventDefault(); // Impede o comportamento padrão do formulário
+                if (form.checkValidity()) {
+                    window.location.href = "Seleção.HTML"; // Redireciona para "Seleção.HTML" se o formulário for válido
+                }
+            });
+        
+            // Função executada quando o botão "Inscreva-se" é clicado
+            inscrevaseButton.addEventListener("click", function(event) {
+                event.preventDefault(); // Impede o comportamento padrão do formulário
+                if (form.checkValidity()) {
+                    window.location.href = "Cadastro.html"; // Redireciona para "Cadastro.html" se o formulário for válido
+                }
+            });
+        });
+        
+        let LoginBtn = document.getElementById("LoginBtn"); // Obtém o botão "Entrar" pelo ID
+        let InscrevaseBtn = document.getElementById("Inscreva-seBtn"); // Obtém o botão "Inscreva-se" pelo ID
+        let Namefield = document.getElementById("Namefield"); // Obtém o campo de nome pelo ID
+        let title = document.getElementById("title"); // Obtém o elemento de título pelo ID
+        
+        // Função executada quando o botão "Entrar" é clicado
+        LoginBtn.onclick = function() {
+            Namefield.style.maxHeight = "0"; // Define a altura máxima do campo de nome como zero (ocultando-o)
+            title.innerHTML = "Entrar"; // Define o texto do título como "Entrar"
+            InscrevaseBtn.classList.add("disable"); // Adiciona a classe "disable" ao botão "Inscreva-se"
+            InscrevaseBtn.classList.remove("active"); // Remove a classe "active" do botão "Inscreva-se"
+            LoginBtn.classList.remove("disable"); // Remove a classe "disable" do botão "Entrar"
+            LoginBtn.classList.add("active"); // Adiciona a classe "active" ao botão "Entrar"
+        };
+        
+        // Função executada quando o botão "Inscreva-se" é clicado
+        InscrevaseBtn.onclick = function() {
+            Namefield.style.maxHeight = "60px"; // Define a altura máxima do campo de nome como 60px (exibindo-o)
+            title.innerHTML = "Inscreva-se"; // Define o texto do título como "Inscreva-se"
+            InscrevaseBtn.classList.remove("disable"); // Remove a classe "disable" do botão "Inscreva-se"
+            InscrevaseBtn.classList.add("active"); // Adiciona a classe "active" ao botão "Inscreva-se"
+            LoginBtn.classList.remove("active"); // Remove a classe "active" do botão "Entrar"
+            LoginBtn.classList.add("disable"); // Adiciona a classe "disable" ao botão "Entrar"
+        };
+        </script>
+</body>
+</Html:5>

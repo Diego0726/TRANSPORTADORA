@@ -1,0 +1,108 @@
+/*Define estilos básicos para todos os elementos, removendo margens e preenchimentos padrão e definindo a fonte 'Poppins' como a fonte principal.*/
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;  
+}
+/*Define o estilo para o contêiner principal, preenchendo a largura e a altura total da viewport, adicionando um plano de fundo com uma imagem e configurando a posição e o dimensionamento do plano de fundo.*/
+.container {
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 50, 0.8), rgba(0, 0, 50, 0.8)), url(imagens/Background\ Cadastro.avif);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+/*Define o estilo para a caixa de formulário, definindo sua largura e posição no centro vertical e horizontal da página, com um fundo branco, preenchimento interno e alinhamento centralizado.*/
+.form-box {
+    width: 90%;
+    max-width: 450px;
+    position: absolute;
+    top: 50%;
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    background: #fff;
+    padding: 50px 60px 70px;
+    text-align: center;
+}
+/*Define o estilo para o título do formulário, especificando o tamanho da fonte, margem inferior, cor do texto e uma posição relativa.*/
+.form-box h1 {
+    font-size: 30px;
+    margin-bottom: 60px;
+    color: #3c00a0;
+    position: relative;
+}
+/*Adiciona uma linha horizontal abaixo do título do formulário, utilizando um pseudo-elemento ::after. Define suas dimensões, cor de fundo e posição absoluta em relação ao elemento pai.*/
+.form-box h1::after {
+    content: ' ';
+    width: 350px;
+    height: 4px;
+    border-radius: 3px;
+    background: #3c00a0;
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+/*Define o estilo para os campos de entrada, definindo o fundo, margem superior e inferior, borda arredondada, exibição em linha e altura máxima.*/
+.input-field {
+    background: #eaeaea;
+    margin: 15px 0;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    max-height: 65px;
+    transition: max-height 1s;
+    overflow: hidden;
+}
+/*Define o estilo para as entradas de texto, configurando a largura para 100%, fundo transparente, borda e contorno sem estilos, e preenchimento interno.*/
+input {
+    width: 100%;
+    background: transparent;
+    border: 0;
+    outline: 0;
+    padding: 18px 15px;
+}
+/*Define o estilo para os ícones presentes nos campos de entrada, definindo a margem à esquerda e a cor do ícone.*/
+.input-field i {
+    margin-left: 15px;
+    color: #999;
+}
+/*Define o estilo para os parágrafos dentro do formulário, especificando o alinhamento do texto à esquerda, o tamanho da fonte e a altura.*/
+form p {
+    text-align: left;
+    font-size: 13px;
+    height: 48px;
+}
+/*Define o estilo para os links dentro dos parágrafos do formulário, removendo a decoração de texto padrão e definindo a cor do link.*/
+form p a {
+    text-decoration: none;
+    color: #3c00a0;
+}
+/*Define o estilo para o campo de botões, configurando a largura para 100%, exibindo os elementos em linha e distribuindo o espaço entre eles.*/
+.btn-field {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+/*Define o estilo para os botões, especificando a largura, altura, cor de fundo, cor do texto, borda arredondada, ausência de borda e contorno, cursor como ponteiro, transição suave de cor de fundo e posicionamento como bloco com margens automáticas*/
+.btn-field button {
+    flex-basis: 50%;
+    background: #3c00a0;
+    color: #fff;
+    height: 40px;
+    width: 335px;
+    border-radius: 60px;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    transition: background 1s;
+    display: block;
+    margin: 10px auto; 
+}
+/*Define o estilo para o botão desabilitado, especificando uma cor de fundo e cor de texto diferentes.*/
+.btn-field button.disable {
+    background: #eaeaea;
+    color: #555;
+}
